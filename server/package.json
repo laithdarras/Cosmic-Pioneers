@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "@apollo/server": "^4.11.0",
+    "bcrypt": "^5.1.1",
+    "bootstrap": "^5.3.3",
+    "concurrently": "^9.0.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "graphql": "^16.9.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.5.4"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "build": "next build",
+    "lint": "next lint",
+    "server": "cd server && node server.js",
+    "client": "cd client && npm run dev",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  }
+}
