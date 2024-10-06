@@ -1,3 +1,3 @@
 export default function Music() {
-  return <h1>This is Music Page</h1>;
+  return <h1>This is the Music Page</h1>;
 }
