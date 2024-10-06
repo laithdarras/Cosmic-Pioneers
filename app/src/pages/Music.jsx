@@ -1,15 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 export default function Music() {
-  const options = [
-    "Select",
-    "Rock",
-    "Pop",
-    "Jazz",
-    "R&B",
-    "Country",
-    "Easy Listening",
-  ];
+  const options = ["Rock", "Pop", "Jazz", "R&B", "Country", "Easy Listening"];
   const country = [
     "Keith Urban",
     "Dolly Parton",
@@ -71,6 +63,14 @@ export default function Music() {
     "Bon Iver",
     "Coldplay",
   ];
+  const reccomendedPlaylist = [
+    "Relaxation",
+    "Workout",
+    "Acoustic",
+    "Classical",
+    "Reggaton",
+    "Chill Pop",
+  ];
   const [myValue, setMyValue] = useState(options[0]);
   // State to control the second dropdown options
   const [artists, setArtists] = useState([]);
@@ -80,13 +80,15 @@ export default function Music() {
   const [selectedArtist, setSelectedArtist] = useState("");
   //controls the playlist visibility
   const [playlistCreated, setPlaylistCreated] = useState(false);
+  //controls the message displayed for reccommended playlist
+  const [recPlaylist, setrecPlaylist] = useState(false);
 
   //handle the first dropdown change
   const handleFirstDropDown = (e) => {
     const genre = e.target.value;
     setMyValue(genre);
     //enable second drop down
-    if (genre != "Select") {
+    if (genre != "Open this select menu") {
       setIsSecondDropdownEnabled(true);
       //update artists based on genre
       switch (genre) {
@@ -121,8 +123,15 @@ export default function Music() {
     //save the selected artist to state
 
     setSelectedArtist(artist);
-    if (artist && myValue !== "Select") {
+    if (artist && myValue !== "Open this select menu") {
       setPlaylistCreated(true);
+    }
+  };
+  const handleThirdSelection = (e) => {
+    const playlist = e.target.value;
+    // setrecPlaylist(playlist);
+    if (playlist !== "Open this select menu") {
+      setrecPlaylist(true);
     }
   };
 
@@ -133,7 +142,7 @@ export default function Music() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          height: "50vh",
+          //   height: "5vh",
         }}
       >
         <form>
@@ -150,8 +159,9 @@ export default function Music() {
               aria-label="Default select example"
               // style={{ width: "50%" }}
             >
-              {options.map((option, idx) => (
-                <option key={idx}>{option}</option>
+              <option selected>Open this select menu</option>
+              {options.map((opt, idx) => (
+                <option key={idx}>{opt}</option>
               ))}
             </select>
           </div>
@@ -172,13 +182,36 @@ export default function Music() {
               ))}
             </select>
           </div>
-
           {playlistCreated && (
-            <h3 style={{ color: "green" }}>
-              Playlist has been created! Let's Play!
-            </h3>
+            <>
+              <h3 style={{ color: "green" }}>Playlist has been created!</h3>
+              <p>Average Max BPM for this workout 150</p>
+            </>
           )}
-
+          or
+          <div class="mb-3">
+            <label for="recPlaylsit" class="form-label">
+              Recommended Playlist
+            </label>
+            <select
+              id="recommendedPlaylist"
+              class="form-select"
+              aria-label="Default select example"
+              onChange={handleThirdSelection}
+              // style={{ width: "50%" }}
+            >
+              <option selected>Open this select menu</option>
+              {reccomendedPlaylist.map((playlist, idx) => (
+                <option key={idx}>{playlist}</option>
+              ))}
+            </select>
+          </div>
+          {recPlaylist && (
+            <>
+              <h3 style={{ color: "green" }}>Playlist has been created!</h3>
+              <p>Average Max BPM for this workout 150</p>
+            </>
+          )}
           <Link to="/Game">
             <button type="submit" class="btn btn-primary">
               Next
