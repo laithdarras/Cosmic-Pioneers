@@ -66,6 +66,21 @@ export default function NavBar() {
             </li>
             <li class="nav-item">
               <Link
+                to="/game"
+                className={
+                  currentPage === "/game" ? "nav-link active" : "nav-link"
+                }
+                style={{
+                  color: "black",
+
+                  fontFamily: "Tenor Sans, sans-serif",
+                }}
+              >
+                Game
+              </Link>
+            </li>
+            <li class="nav-item">
+              <Link
                 to="/journal"
                 className={
                   currentPage === "/journal" ? "nav-link active" : "nav-link"
