@@ -38,7 +38,7 @@ export default function Home() {
   return (
     <div className="home">
       <header>
-        <h1>Welcome to Cosmic Pioneers!</h1>
+        <h1>Welcome to Zero-G Knockout!</h1>
       </header>
       <main>
         <section className="features">
