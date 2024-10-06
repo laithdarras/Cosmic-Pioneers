@@ -47,6 +47,9 @@ export default function Home() {
             <li>Engaging Microgravity Fitness Game</li>
             <li>Track Your Progress</li>
             <li>Build Team Rapport</li>
+            <li>Multiple Earth and Space Based Themes</li>
+            <li>Test your might against other Space Stations</li>
+            <li>Journal your progress</li>
           </ul>
         </section>
         <section className="music-selection">
