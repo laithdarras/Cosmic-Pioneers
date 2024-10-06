@@ -5,8 +5,8 @@ export default function NavBar() {
   return (
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-          Navbar
+        <a class="navbar-brand" href="/">
+          Zero-G Knockout
         </a>
         <button
           class="navbar-toggler"
@@ -21,9 +21,9 @@ export default function NavBar() {
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
-            <li class="nav-item">
+            {/* <li class="nav-item">
               <Link
-                to="/"
+                to="/home"
                 className={currentPage === "/" ? "nav-link active" : "nav-link"}
                 style={{
                   color: "black",
@@ -33,7 +33,7 @@ export default function NavBar() {
               >
                 Home
               </Link>
-            </li>
+            </li> */}
             <li class="nav-item">
               <Link
                 to="/begin"

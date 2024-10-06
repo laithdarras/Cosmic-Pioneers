@@ -1,71 +1,15 @@
-# Cosmic-Pioneers
-# Getting Started with Create React App
+# ☄️ Zero-G Knockout - an Exercise Rhythm Game for Astronauts
 
+Prolonged exposure to zero gravity in space can have significant effects on the human body. Without the constant pull of gravity, muscles and bones weaken due to decreased use, leading to muscle atrophy and bone density loss. The cardiovascular system also experiences changes, with blood and fluids redistributing, often causing facial puffiness and decreased blood volume in the legs. Zero-G Knockout is an exercise app using personalized biometrics data to create the optimal cardiovascular exercise regime. Our app takes into account the fitness needs of astronauts all while addressing the unique challenges of living in a space station.
+
+## ℹ️ Project Details
+
+Our project consists of two main components: a meta app which combines the user's biometrics data and fitness requirements to construct the optimal playlist and an augmented reality (AR) game designed to help astronauts exercise within space.
+
+Using ReactJS, we build a mock-up of the meta app in which a user representing an astronaut can enter information regarding their desired workout routine. Combining the user's biometrics data taken from routine medical check-ups, the meta app constructs a playlist for the exercise routine with a targeted, average beats-per-minute (bpm). In principle, the meta app uses the targeted, average bpm to help users reach a desired elevated heart rate.
+
+## 🤝 Team Members
+Nelly Lopez, Laith Darras, Tony Hua, Roman Giglio, Aizen Baidya, Parth Jain
+
+## 🙌 Acknowledgments
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

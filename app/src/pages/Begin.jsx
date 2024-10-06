@@ -55,7 +55,7 @@ export default function Timer() {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-3">
       <h1>New Game</h1>
 
       <div>
