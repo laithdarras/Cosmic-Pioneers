@@ -1,5 +1,3 @@
-import './Timer.css';
-
 export default function Timer() {
   return (
     <div id="main-container" class="container pt-2 pb-2">
