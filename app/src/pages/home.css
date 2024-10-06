@@ -1,0 +1,36 @@
+.bottomleft {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+    font-size: 18px;
+    }
+
+.text-box {
+       
+        padding: 1px;  
+        position: center;         
+
+    }
+
+.icon {
+        width: 700px;
+        height: 700px;
+        position: absolute;
+        bottom: 8px;
+        left: 5px;
+        background-image: url('https://img.icons8.com/?size=100&id=1d4nE1Iyk5s5&format=png&color=000000');
+        background-size: cover;
+        display: inline-block;
+    }
+
+.iconss {
+        width: 400px;
+        height: 400px;
+        top: 8px;
+        right: 40px;
+        position: absolute;
+        background-image: url(https://img.icons8.com/?size=100&id=Jg4aUpsiqhVZ&format=png&color=000000);
+        background-size: cover;
+        display: inline-block;
+        
+    }
