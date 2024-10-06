@@ -44,7 +44,7 @@ export default function Home() {
         </section>
       </main>
       <footer>
-      <div class="bottomleft">2024 Cosmic Pioneers. All rights reserved.</div>
+      <div class="bottomleft">©2024 Cosmic Pioneers. All rights reserved.</div>
       </footer>
     </div>
   );
