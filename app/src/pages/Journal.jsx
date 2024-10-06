@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Form, Button, ListGroup } from "react-bootstrap";
+import { Container, Form, Button, ListGroup, Badge } from "react-bootstrap";
 
 const Journal = () => {
   const [currEntry, setCurrEntry] = useState('');   // state to store the current journal entry
@@ -30,19 +30,19 @@ const Journal = () => {
 
   return (
     <Container className="journal">
-              <h1>Astronaut's Journal</h1>
-              <Form onSubmit={handleSubmit}>
-              <Form.Group controlId="mood check">
+              <h1 className="text-center mb-4">Astronaut's Journal</h1>
+              <Form onSubmit={handleSubmit} className="mb-4">
+              <Form.Group controlId="mood check" className="text-center mb-4">
                       <Form.Label>How are you feeling?</Form.Label>
-                          <div className="mood check">
-                          <Button variant={mood === '😀' ? 'success' : 'light'} onClick={() => handleMoodChanges('😀')} className={mood === '😀' ? 'selected' : ''}>😀</Button>
-                          <Button variant={mood === '😐' ? 'success' : 'light'} onClick={() => handleMoodChanges('😐')} className={mood === '😐' ? 'selected' : ''}>😐</Button>
-                          <Button variant={mood === '😔' ? 'success' : 'light'} onClick={() => handleMoodChanges('😔')} className={mood === '😔' ? 'selected' : ''}>😔</Button>
+                          <div className="d-flex justify-content-center mb-3">
+                          <Button variant={mood === '😀' ? 'success' : 'light'} onClick={() => handleMoodChanges('😀')} className="mx-2">😀</Button>
+                          <Button variant={mood === '😐' ? 'success' : 'light'} onClick={() => handleMoodChanges('😐')} className="mx-2">😐</Button>
+                          <Button variant={mood === '😔' ? 'success' : 'light'} onClick={() => handleMoodChanges('😔')} className="mx-2">😔</Button>
                           </div>
                           </Form.Group>
 
 
-                  <Form.Group controlId="journalEntry">
+                  <Form.Group controlId="journalEntry" className="mb-4">
                       <Form.Label>Write your thoughts after exercise:</Form.Label>
                       <Form.Control 
                           as="textarea" 
@@ -50,16 +50,22 @@ const Journal = () => {
                           value={currEntry} 
                           onChange={handleChanges} 
                           placeholder="How was your workout? Any reflections?" 
+                          className="form-control"
                       />
                   </Form.Group>
+                  <div className="text-center">
                   <Button variant="primary" type="submit">Save Entry</Button>
+                  </div>
               </Form>
   
-              <h2>Your Journal Entries</h2>
+              <h2 className="text-center mb-4">Your Journal Entries</h2>
               <ListGroup>
                   {journalEntries.map((entry, index) => (
-                      <ListGroup.Item key={index}>
-                        {entry.mood} - {entry.text}
+                      <ListGroup.Item key={index} className="d-flex justify-content-between align-items-center">
+                        <span>
+                          <Badge bg="secondary" className="me-2">{entry.mood}</Badge>
+                            {entry.text}
+                        </span>
                         <Button variant="danger" onClick={() => handleDelete(index)}>Delete</Button>
                       </ListGroup.Item>
                   ))}
