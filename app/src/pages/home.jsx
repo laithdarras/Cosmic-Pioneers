@@ -27,7 +27,7 @@ export default function Home() {
           <h2 align="center">Join Us!</h2>
           <p align="center">Ready to launch into fun and fitness?</p>
           <div className="text-center">
-            <button type="button" class="btn btn-primary btn-lg">Start Your Journey</button> 
+            <a type="button" class="btn btn-primary btn-lg" href="/begin"><i class="bi bi-rocket"></i>&nbsp;Start Your Journey!</a> 
           </div>
           
         </section>
