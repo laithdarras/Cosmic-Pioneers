@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Bar } from "react-chartjs-2";
 import { Container, Form, Button, ListGroup, Badge } from "react-bootstrap";
+import 'chart.js/auto';
 
 const Journal = () => {
   const [currEntry, setCurrEntry] = useState('');   // state to store the current journal entry
   const [mood, setMood] = useState('');  // state to store the mood
   const [journalEntries, setJournalEntries] = useState([]);  // state to store all journal entries
+  const [showChart, setShowChart] = useState(false);  // state to toggle the chart display
+  const [moodData, setMoodData] = useState({});  // state to store the mood data for the chart
 
   const handleChanges = (e) => {
     setCurrEntry(e.target.value);  // update the current journal entry
@@ -17,7 +21,9 @@ const Journal = () => {
   const handleSubmit = (e) => {   // function to handle the form submission
     e.preventDefault();
     if (currEntry && mood) {  // check if the current journal entry and mood are not empty
-      setJournalEntries([...journalEntries, {text: currEntry, mood}]);  // add the current journal entry to the list of journal entries
+      const newEntries = [...journalEntries, {text: currEntry, mood}];  // add the current journal entry to the list of journal entries
+      setJournalEntries(newEntries);  // update the list of journal entries
+      localStorage.setItem('entries', JSON.stringify(newEntries));  // store the journal entries in local storage
       setCurrEntry('');  // clear the current journal entry
       setMood('');  // clear the mood
     }
@@ -26,7 +32,52 @@ const Journal = () => {
   const handleDelete = (index) => {
     const newEntries = journalEntries.filter((_, i) => i !== index);  // filter out the entry at the given index
     setJournalEntries(newEntries);  // update the list of journal entries
+    localStorage.setItem('entries', JSON.stringify(newEntries));  // store the updated journal entries in local storage
   };
+
+  useEffect(() => {
+    const storage = localStorage.getItem('entries');
+
+    if (!storage) {
+      localStorage.setItem('entries', JSON.stringify([]));  // initialize the journal entries if not present in local storage
+    };
+
+    let entries;
+    try {
+      entries = JSON.parse(storage) || [];  // get the journal entries from local storage
+    } catch (error) {
+      console.error("Error parsing entries from local storage", error);
+      entries = [];
+    }
+
+    setJournalEntries(entries);  // set the journal entries
+
+    const moodCounts = {'😀': 0, '😐': 0, '😔': 0};
+    if (Array.isArray(entries)) {
+      entries.forEach(entry => {
+        if (entry.mood in moodCounts) {
+          moodCounts[entry.mood] += 1;
+        }
+      });
+    }
+    //   if (entry.mood in moodCounts) {
+    //     moodCounts[entry.mood] += 1;  // count and increment the occurrences of each mood
+    //   }
+    // });
+    
+    setMoodData({  // set the mood data for the chart
+      labels: ['😀', '😐', '😔'],
+      datasets: [
+        {
+          label: 'Mood Insights',
+          data: [moodCounts['😀'], moodCounts['😐'], moodCounts['😔']],
+          backgroundColor: ['#36b8f4', '#36b8f4', '#36b8f4'],
+          borderWidth: 1,
+        },
+      ],
+  });
+}, [journalEntries]);
+
 
   return (
     <Container className="journal">
@@ -70,9 +121,50 @@ const Journal = () => {
                       </ListGroup.Item>
                   ))}
               </ListGroup>
+
+              <div className='text-center mt-4'>
+                <Button onClick={() => setShowChart(!showChart)}>
+                  {showChart ? 'Hide Mood Chart' : 'Show Mood Chart'}
+                </Button>
+              </div>
+
+              {showChart && (
+                <div className="mt-4">
+                  <h2 className="text-center mb-4">Mood Tracker</h2>
+                  <Bar
+                    data={moodData}
+                    ptions={{
+                        animation: {
+                          duration: 2000, // faster animation
+                        },
+                        scales: {
+                          x: {
+                            title: {
+                              display: true,
+                              text: 'Moods', // X-axis
+                            },
+                            ticks: {
+                              autoSkip: true,
+                              maxTicksLimit: 10,
+                            },
+                          },
+                          y: {
+                            title: {
+                              display: true,
+                              text: 'Number of Entries', // Y-axis
+                            },
+                            beginAtZero: true,
+                            ticks: {
+                              stepSize: 1,
+                            },
+                          },
+                        },
+                      }}
+                    />
+                </div>
+              )}
           </Container>
     );
-
 };
   
 export default Journal;
