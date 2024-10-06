@@ -3,108 +3,33 @@ import React from "react";
 import { useState, useEffect } from "react";
 
 export default function Home() {
-  const [musicData, setMusicData] = useState({
-    genres: {}, // List of music genres
-    artists: {}, // List of artists mapping from genre
-    songs: {}, // List of songs mapping from artist
-  });
-
-  const [selectedGenre, setSelectedGenre] = useState("");
-  const [selectedArtist, setSelectedArtist] = useState("");
-  const [selectedSong, setSelectedSong] = useState("");
-
-  const handleGenreChange = (e) => {
-    setSelectedGenre(e.target.value); // Update selected genre
-    setSelectedArtist(""); // Reset selected artist
-    setSelectedSong(""); // Reset selected song
-  };
-
-  const handleArtistChange = (e) => {
-    setSelectedArtist(e.target.value); // Update selected artist
-    setSelectedSong(""); // Reset selected song
-  };
-
-  const handleSongChange = (e) => {
-    setSelectedSong(e.target.value); // Update selected song
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent page refresh
-    console.log(
-      `Genre: ${selectedGenre}, Artist: ${selectedArtist}, Song: ${selectedSong}`
-    );
-  };
+  
 
   return (
     <div className="home">
       <header>
-        <h1>Welcome to Zero-G Knockout!</h1>
+        <h1 align="center">Welcome to Zero-G Knockout!</h1>
       </header>
       <main>
         <section className="features">
-          <h2>Features</h2>
-          <ul>
-            <li>Engaging Microgravity Fitness Game</li>
-            <li>Track Your Progress</li>
-            <li>Build Team Rapport</li>
-            <li>Multiple Earth and Space Based Themes</li>
-            <li>Test your might against other Space Stations</li>
-            <li>Journal your progress</li>
-          </ul>
+          <br></br>
+          <h2 align="center">Features</h2>
+            <p align="center">Engaging Microgravity Fitness Game</p>
+            <p align="center">Track Your Progress</p>
+            <p align="center">Build Team Rapport</p>
+            <p align="center">Multiple Earth and Space Based Themes</p>
+            <p align="center">Test your might against other Space Stations</p>
+            <p align="center">Journal your progress</p>
         </section>
-        <section className="music-selection">
-          <h2>Select Your Music</h2>
-          <form onSubmit={handleSubmit}>
-            <label>
-              Genre:
-              <select value={selectedGenre} onChange={handleGenreChange}>
-                <option value="">Select Genre</option>
-                {Object.keys(musicData.genres).map((genre) => (
-                  <option key={genre} value={genre}>
-                    {genre}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <label>
-              Artist:
-              <select
-                value={selectedArtist}
-                onChange={handleArtistChange}
-                disabled={!selectedGenre}
-              >
-                <option value="">Select Artist</option>
-                {selectedGenre &&
-                  musicData.artists[selectedGenre]?.map((artist) => (
-                    <option key={artist} value={artist}>
-                      {artist}
-                    </option>
-                  ))}
-              </select>
-            </label>
-            <label>
-              Song:
-              <select
-                value={selectedSong}
-                onChange={handleSongChange}
-                disabled={!selectedArtist}
-              >
-                <option value="">Select Song</option>
-                {selectedArtist &&
-                  musicData.songs[selectedArtist]?.map((song) => (
-                    <option key={song} value={song}>
-                      {song}
-                    </option>
-                  ))}
-              </select>
-            </label>
-            <button type="submit">Play Music</button>
-          </form>
-        </section>
+       
         <section className="call-to-action">
-          <h2>Join Us!</h2>
-          <p>Ready to launch into fun and fitness?</p>
-          <button>Start Your Journey</button>
+          <br></br>
+          <h2 align="center">Join Us!</h2>
+          <p align="center">Ready to launch into fun and fitness?</p>
+          <div className="text-center">
+            <button type="button" class="btn btn-primary btn-lg">Start Your Journey</button> 
+          </div>
+          
         </section>
       </main>
       <footer>
