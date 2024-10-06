@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function Timer() {
   const [hours, setHours] = useState(0);
@@ -55,7 +56,7 @@ export default function Timer() {
 
   return (
     <div className="container mt-5">
-      <h1>Countdown Timer</h1>
+      <h1>New Game</h1>
 
       <div>
         <div class="form-group row align-items-center">
@@ -187,11 +188,54 @@ export default function Timer() {
         </div>
       </div>
 
+      <div>
+        <div class="col-sm-auto pt-3">
+          <h5>
+            <label for="name-input">Game Theme</label>
+          </h5>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="flexCheckDefault"
+          />
+          <label class="form-check-label" for="flexCheckDefault">
+            Space
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="flexCheckChecked"
+          />
+          <label class="form-check-label" for="flexCheckChecked">
+            Soccer Field
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="flexCheckChecked"
+          />
+          <label class="form-check-label" for="flexCheckChecked">
+            Hiking
+          </label>
+        </div>
+      </div>
+
       <div class="col-sm d-flex justify-content-center">
         <div class="col-sm-auto pt-3 pb-3">
-          <div class="btn btn-primary">
-            <i class="bi bi-play-fill"></i>&nbsp;Let's Play!
-          </div>
+          <Link to="/music">
+            <div class="btn btn-primary">
+              <i class="bi bi-play-fill"></i>&nbsp;Choose Music
+            </div>{" "}
+          </Link>
         </div>
       </div>
     </div>

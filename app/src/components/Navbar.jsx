@@ -36,9 +36,9 @@ export default function NavBar() {
             </li>
             <li class="nav-item">
               <Link
-                to="/timer"
+                to="/begin"
                 className={
-                  currentPage === "/timer" ? "nav-link active" : "nav-link"
+                  currentPage === "/begin" ? "nav-link active" : "nav-link"
                 }
                 style={{
                   color: "black",
@@ -46,7 +46,7 @@ export default function NavBar() {
                   fontFamily: "Tenor Sans, sans-serif",
                 }}
               >
-                Timer
+                Begin
               </Link>
             </li>
             <li class="nav-item">
